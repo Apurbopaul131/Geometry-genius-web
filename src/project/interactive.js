@@ -33,41 +33,47 @@ const callculateEllipseArea = (base, height) => {
 //set inner html of the element
 const setInnerHtml = (area, title) => {
   const targetElement = document.getElementById("ordered-list");
+  if (targetElement.children.length <= 5) {
+    // Create list element for display result on the user interface
+    const li = document.createElement("li");
+    li.className = "text-lg";
 
-  // Create list element for display result on the user interface
-  const li = document.createElement("li");
-  li.className = "text-lg";
+    // Create title span
+    const titleSpan = document.createElement("span");
+    titleSpan.textContent = title;
+    titleSpan.id = `${title}-result`;
 
-  // Create title span
-  const titleSpan = document.createElement("span");
-  titleSpan.textContent = title;
+    // Create area span
+    const areaSpan = document.createElement("span");
+    areaSpan.innerHTML = `${area}cm<sup>2</sup>`;
+    areaSpan.id = `${title}-field`;
 
-  // Create area span
-  const areaSpan = document.createElement("span");
-  areaSpan.innerHTML = `${area}cm<sup>2</sup>`;
-  areaSpan.id = `${title}-field`;
+    // Create button
+    const button = document.createElement("button");
+    button.className = "btn btn-primary btn-sm";
 
-  // Create button
-  const button = document.createElement("button");
-  button.className = "btn btn-primary btn-sm";
+    //add button id
+    button.id = `${title}-meter`;
 
-  //add button id
-  button.id = `${title}-meter`;
+    // Create button text
+    const buttonText = document.createElement("span");
+    buttonText.innerHTML = "convert m<sup>2</sup>";
 
-  // Create button text
-  const buttonText = document.createElement("span");
-  buttonText.innerHTML = "convert m<sup>2</sup>";
+    // Append button text to button
+    button.appendChild(buttonText);
 
-  // Append button text to button
-  button.appendChild(buttonText);
+    // Append title, area, and button to li
+    li.appendChild(titleSpan);
+    li.appendChild(areaSpan);
+    li.appendChild(button);
 
-  // Append title, area, and button to li
-  li.appendChild(titleSpan);
-  li.appendChild(areaSpan);
-  li.appendChild(button);
-
-  // Append the list item to the ordered list
-  targetElement.appendChild(li);
+    // Append the list item to the ordered list
+    targetElement.appendChild(li);
+  } else {
+    const maxElement = document.getElementById("maximum-point");
+    maxElement.innerText = "Maximum point exist";
+    maxElement.className = "text-red-500 text-center";
+  }
 };
 
 //This function used for print error massage
