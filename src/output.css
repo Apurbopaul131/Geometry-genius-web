@@ -1321,16 +1321,8 @@ html {
   margin-bottom: 1.25rem;
 }
 
-.mr-3 {
-  margin-right: 0.75rem;
-}
-
 .mr-2 {
   margin-right: 0.5rem;
-}
-
-.mr-1 {
-  margin-right: 0.25rem;
 }
 
 .flex {
@@ -1499,6 +1491,11 @@ html {
 .text-\[\#111111\] {
   --tw-text-opacity: 1;
   color: rgb(17 17 17 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .underline {
